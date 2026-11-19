@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Droidtable — darktable's engine on Android</title>
 <meta name="description" content="Droidtable is a touch-friendly Android photo editor built on darktable's own processing engine. Same modules, same XMP sidecars as desktop darktable.">
+<link rel="icon" type="image/svg+xml" href="assets/droidtable-mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/droidtable-mark-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
+<meta name="theme-color" content="#0d1117">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Droidtable — darktable's engine on Android">
+<meta property="og:description" content="A touch-friendly Android photo editor built on darktable's own processing engine. Same modules, same XMP sidecars as desktop darktable.">
+<meta property="og:image" content="assets/droidtable-og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
     --bg: #0d1117;
@@ -30,8 +41,8 @@
     margin-bottom: 48px;
   }
   header .wrap { padding-bottom: 0; display: flex; align-items: baseline; gap: 12px; }
-  .logo { font-size: 20px; font-weight: 700; letter-spacing: 0.3px; }
-  .logo span { color: var(--accent); }
+  .logo-img { height: 28px; display: block; }
+  .hero-mark { width: 96px; height: 96px; margin-top: 8px; }
   header nav { margin-left: auto; font-size: 14px; }
   header nav a { color: var(--muted); text-decoration: none; margin-left: 16px; }
   header nav a:hover { color: var(--accent); }
@@ -87,7 +98,7 @@
 <body>
 <header>
   <div class="wrap">
-    <div class="logo">droid<span>table</span></div>
+    <a href="#"><img class="logo-img" src="assets/droidtable-logo-dark.svg" alt="Droidtable"></a>
     <nav>
       <a href="#about">About</a>
       <a href="#status">Status</a>
@@ -99,6 +110,7 @@
 
 <div class="wrap">
   <section class="hero" id="about">
+    <img class="hero-mark" src="assets/droidtable-mark.svg" alt="Droidtable mark: a robot head peeking over a lighttable with three slides">
     <h1>darktable's engine, on your phone.</h1>
     <p class="tagline">A touch-friendly Android photo editor built on darktable's own processing engine.</p>
     <p class="lead">
@@ -154,6 +166,8 @@
   <footer>
     Droidtable — served by GitHub Pages from
     <a href="https://github.com/droidtable/droidtable-page">this repository</a>.
+    Logo and icons in <a href="assets/">assets/</a> are original and
+    <a href="assets/CC0-1.0.txt">CC0 1.0</a>.
   </footer>
 </div>
 </body>

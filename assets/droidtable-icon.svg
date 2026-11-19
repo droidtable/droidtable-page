@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+<!-- Droidtable app icon, rounded square (legacy launcher icon, README, social). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>Droidtable</title>
+  <rect width="512" height="512" rx="112" fill="#0d1117"/>
+  <g transform="translate(61 61) scale(3.9)">
+    <path fill="#3fb950" d="M44 10A6 6 0 1 1 56 10A6 6 0 1 1 44 10ZM47 12H53V24H47ZM36 22H64A12 12 0 0 1 76 34V60H24V34A12 12 0 0 1 36 22Z"/>
+    <path fill="#0d1117" d="M32.5 40A5.5 5.5 0 1 0 43.5 40A5.5 5.5 0 1 0 32.5 40ZM56.5 40A5.5 5.5 0 1 0 67.5 40A5.5 5.5 0 1 0 56.5 40Z"/>
+    <path fill="#30363d" stroke="#30363d" stroke-width="2" stroke-linejoin="round" d="M9 84H17V95H9ZM83 84H91V95H83Z"/>
+    <path fill="#30363d" stroke="#30363d" stroke-width="4" stroke-linejoin="round" d="M12 52H88L98 80V85H2V80Z"/>
+    <path fill="#e6edf3" d="M15 56H85L92.2 76H7.8Z"/>
+    <path fill="#58a6ff" d="M20.58 60H37.74L36.46 72H17.5ZM41.42 60H58.58L59.48 72H40.52ZM62.26 60H79.42L82.5 72H63.54Z"/>
+    <path fill="#3fb950" d="M25 47H28A4 4 0 0 1 32 51V52A4 4 0 0 1 28 56H25A4 4 0 0 1 21 52V51A4 4 0 0 1 25 47ZM72 47H75A4 4 0 0 1 79 51V52A4 4 0 0 1 75 56H72A4 4 0 0 1 68 52V51A4 4 0 0 1 72 47Z"/>
+  </g>
+</svg>
