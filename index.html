@@ -19,80 +19,358 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a href="#"><img class="logo-img" src="assets/droidtable-logo-dark.svg" alt="Droidtable"></a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="#top" class="brand"><img class="logo-img" src="assets/droidtable-logo-dark.svg" alt="Droidtable"></a>
     <nav>
-      <a href="#about">About</a>
+      <a href="#why">Why</a>
+      <a href="#features">Features</a>
+      <a href="#architecture">How it works</a>
       <a href="#status">Status</a>
+      <a href="#faq">FAQ</a>
       <a href="#links">Links</a>
-      <a href="#license">License</a>
     </nav>
   </div>
 </header>
 
-<div class="wrap">
-  <section class="hero" id="about">
-
-    <h1> <img class="hero-logo" src="assets/droidtable-logo-dark-880x224.png" alt="Droidtable Logo">
-    <div>darktable on your phone.</div></h1>
-    <p class="tagline">A touch-friendly Android photo editor built on darktable's own processing engine.</p>
-    <p class="lead">
-      Droidtable reuses darktable's original processing modules instead of reimplementing
-      them, and reads and writes the same XMP sidecar files as desktop darktable —
-      so your edits move seamlessly between desktop and phone.
-    </p>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <img class="hero-logo" src="assets/droidtable-logo-dark-880x224.png" alt="Droidtable">
+      <h1>darktable on your phone.</h1>
+      <p class="tagline">A touch-friendly Android photo editor built on darktable's own processing engine.</p>
+      <p class="lead">
+        Droidtable does not imitate darktable — it <em>runs</em> it. The original darktable
+        processing modules render your RAW files on the phone, and your edits are stored in
+        the same XMP sidecar files desktop darktable reads and writes. Start an edit on the
+        go, finish it at your desk, or the other way round.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#status">Project status</a>
+        <a class="btn" href="https://github.com/droidtable/darktable">darktable fork on GitHub</a>
+      </div>
+      <ul class="facts">
+        <li><span>93</span>original darktable modules in the engine</li>
+        <li><span>5.6.2</span>darktable release the engine is pinned to</li>
+        <li><span>XMP</span>sidecars shared with desktop darktable</li>
+        <li><span>GPL-3.0</span>free and open source</li>
+      </ul>
+    </div>
   </section>
 
-  <h2>How it works</h2>
-  <ul class="features">
-    <li><strong>Kotlin + Jetpack Compose UI</strong> — Lighttable and Darkroom views designed for touch, smartphone first with a tablet layout built in.</li>
-    <li><strong>Separate engine process</strong> — the native engine runs in its own Android process behind a versioned Binder IPC contract; a crash there never kills the UI.</li>
-    <li><strong>The real darktable engine</strong> — libdarktable built for Android without GTK, with all 93 original processing modules, verified against desktop darktable within measured tolerances.</li>
-    <li><strong>Desktop-compatible sidecars</strong> — RAW files open with their <code>&lt;name&gt;.xmp</code> automatically, and saving writes the same XMP format desktop darktable reloads.</li>
-  </ul>
+  <div class="wrap">
+    <section id="why">
+      <h2>Why Droidtable?</h2>
+      <div class="grid three">
+        <div class="tile">
+          <h3>The real engine</h3>
+          <p>
+            No re-implementation of darktable's maths in another language. Droidtable builds
+            libdarktable for Android without GTK and calls the unchanged processing code, so a
+            module behaves the way it does on the desktop.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>One edit, two devices</h3>
+          <p>
+            A RAW file opens together with its <code>&lt;name&gt;.xmp</code> sidecar. Saving writes
+            the same format desktop darktable reloads — history, module instances and masks
+            included. No export/import step, no proprietary catalogue.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>Made for touch</h3>
+          <p>
+            A new Kotlin and Jetpack Compose interface designed for fingers instead of a mouse:
+            large sliders, tap-to-type values, gestures on the preview and a layout that works
+            on a phone first.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <h2 id="status">Status</h2>
-  <p>
-    The Android engine port is complete and verified on real hardware: it renders desktop
-    edits bit-close to desktop darktable (within the project's measured ARM tolerance policy)
-    and round-trips XMP sidecars with desktop. The editing UI — Lighttable, Darkroom,
-    histogram, and a growing set of modules — is in active development.
-  </p>
-  <div class="note">
-    This site is just getting started. More documentation, screenshots and downloads will appear here as the project matures.
+    <section id="features">
+      <h2>What you can do today</h2>
+      <p>
+        The app is under active development. The following already works in the development
+        builds on a real Android phone:
+      </p>
+      <div class="grid two">
+        <div class="tile">
+          <h3>Lighttable &amp; Darkroom</h3>
+          <ul class="checks">
+            <li>Browse a folder of RAW and JPEG files with thumbnails</li>
+            <li>Open a photo with its existing desktop sidecar</li>
+            <li>Fast, incremental preview while you drag a slider</li>
+            <li>Histogram, waveform and vectorscope</li>
+            <li>History panel with undo and redo</li>
+            <li>Export of the developed image</li>
+            <li>darktable's workflow setting: scene-referred (sigmoid, filmic, AgX) or display-referred</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3>Editing tools</h3>
+          <ul class="checks">
+            <li>Multiple instances of a module, each with its own label</li>
+            <li>Drawn masks (circle, ellipse, path, brush, gradient) with a zoomable editor</li>
+            <li>Mask overlay rendered by darktable itself</li>
+            <li>External raster masks</li>
+            <li>Tap any slider value to type an exact number</li>
+            <li>Desktop-style curve graphs where a module needs them</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub">Modules with a touch interface</h3>
+      <p class="muted">
+        Every module can render; these already have a dedicated control panel in the app. More
+        follow with every release.
+      </p>
+      <div class="module-groups">
+        <div>
+          <h4>Base &amp; tone</h4>
+          <ul class="tags">
+            <li>exposure</li><li>sigmoid</li><li>tone equalizer</li><li>local contrast</li>
+            <li>highlight reconstruction</li><li>haze removal</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Color</h4>
+          <ul class="tags">
+            <li>white balance</li><li>color calibration</li><li>color balance rgb</li>
+            <li>color equalizer</li><li>rgb primaries</li><li>color harmonizer</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Correct</h4>
+          <ul class="tags">
+            <li>lens correction</li><li>denoise (profiled)</li><li>astrophoto denoise</li>
+            <li>hot pixels</li><li>raw chromatic aberrations</li><li>chromatic aberrations</li>
+            <li>sharpen</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Composition &amp; effects</h4>
+          <ul class="tags">
+            <li>crop</li><li>orientation</li><li>rotate and perspective <small>(rotation)</small></li>
+            <li>enlarge canvas</li><li>vignette</li><li>grain</li><li>blurs</li><li>censorize</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <h2>Desktop ↔ phone workflow</h2>
+      <ol class="steps">
+        <li>
+          <strong>Copy or sync</strong> your RAW files and their <code>.xmp</code> sidecars to the
+          phone — any folder you can open with Android's file picker works.
+        </li>
+        <li>
+          <strong>Edit in Droidtable.</strong> Existing desktop edits are rendered by the same
+          modules; you continue where you left off.
+        </li>
+        <li>
+          <strong>Save.</strong> Droidtable writes the sidecar safely (a failed write never
+          damages the old one) in darktable's own XMP format.
+        </li>
+        <li>
+          <strong>Back on the desktop,</strong> darktable 5.6.1 or later reloads the sidecar and
+          shows exactly the same history.
+        </li>
+      </ol>
+    </section>
+
+    <section id="architecture">
+      <h2>How it works</h2>
+      <div class="arch">
+        <div class="layer ui">
+          <div class="layer-title">Droidtable app — UI process</div>
+          <div class="layer-desc">Kotlin + Jetpack Compose: Lighttable, Darkroom, module panels, mask editor, undo/redo</div>
+        </div>
+        <div class="arrow">Binder IPC · versioned requests and results</div>
+        <div class="layer engine">
+          <div class="layer-title">Engine service — separate <code>:engine</code> process</div>
+          <div class="layer-desc">Kotlin service → JNI → Droidtable's native host bridge. If the engine crashes, the UI survives and restarts it.</div>
+        </div>
+        <div class="arrow">C API</div>
+        <div class="layer dt">
+          <div class="layer-title">libdarktable — engine-only build, no GTK</div>
+          <div class="layer-desc">All 93 original processing modules, darktable's data files, the Lensfun lens database and the image libraries darktable depends on</div>
+        </div>
+        <div class="arrow">reads / writes</div>
+        <div class="layer files">
+          <div class="layer-desc"><code>photo.CR2</code> + <code>photo.CR2.xmp</code> — the desktop-compatible sidecar</div>
+        </div>
+      </div>
+
+      <h3 class="sub">Keeping darktable's results</h3>
+      <ul class="features">
+        <li>
+          <strong>Image processing is never changed.</strong> The darktable changes only hide
+          desktop GUI code behind a build switch (<code>DARKTABLE_ENGINE_ONLY</code>), split shared
+          headers into core and GUI parts, and fix small differences of Android's C library and
+          compiler.
+        </li>
+        <li>
+          <strong>Verified against desktop darktable.</strong> The engine-only build is bit-exact
+          with the official desktop release on x86; on the phone's ARM CPU, renders are compared
+          pixel by pixel within a measured tolerance policy.
+        </li>
+        <li>
+          <strong>Every change is public.</strong> The fork keeps one commit per change on top of
+          the darktable release tag, labelled <code>build:</code>, <code>engine:</code> or
+          <code>android:</code>. Each engine version is tagged <code>droidtable-5.6.2-dd.N</code> and
+          published with its prebuilt package, licenses and corresponding source.
+        </li>
+        <li>
+          <strong>Releases, not nightlies.</strong> Droidtable follows darktable releases only. A
+          new release is adopted by replaying the fork's commits onto it and re-running the full
+          compatibility suite.
+        </li>
+      </ul>
+    </section>
+
+    <section id="status">
+      <h2>Status &amp; roadmap</h2>
+      <ol class="timeline">
+        <li class="done">
+          <div class="t-title">Desktop compatibility baseline</div>
+          <div class="t-desc">Pinned darktable 5.6.2, reference renders and sidecars produced by desktop darktable.</div>
+        </li>
+        <li class="done">
+          <div class="t-title">GTK-free engine with all 93 modules</div>
+          <div class="t-desc">Built without the desktop UI, bit-exact with the official desktop build.</div>
+        </li>
+        <li class="done">
+          <div class="t-title">Engine on Android</div>
+          <div class="t-desc">Cross-compiled for arm64 with the Android NDK, running inside the APK in its own process behind a Binder contract.</div>
+        </li>
+        <li class="done">
+          <div class="t-title">App shell &amp; sidecar round-trip</div>
+          <div class="t-desc">Open files through the system picker, render previews and full-size images, edit and save XMPs that desktop darktable reloads.</div>
+        </li>
+        <li class="active">
+          <div class="t-title">Editor <span class="badge">in progress</span></div>
+          <div class="t-desc">Module panels, masks, histogram scopes, history and export are working. Next: parametric masks, before/after view, a generic panel for the remaining modules, "Open with" integration and tablet layouts.</div>
+        </li>
+        <li>
+          <div class="t-title">Optimize &amp; release</div>
+          <div class="t-desc">Speed and memory tuning, GPU acceleration after CPU correctness, automated round-trip tests and a first public release.</div>
+        </li>
+      </ol>
+      <div class="note">
+        There is no public app download yet. Engine packages are available as pre-releases on
+        the <a href="https://github.com/droidtable/darktable/releases">fork's release page</a>.
+        Screenshots and builds will appear here as the project matures.
+      </div>
+    </section>
+
+    <section id="requirements">
+      <h2>Requirements (current development builds)</h2>
+      <ul class="features">
+        <li><strong>Android 15</strong> (API level 35) or later.</li>
+        <li><strong>64-bit ARM</strong> device (<code>arm64-v8a</code>).</li>
+        <li><strong>darktable 5.6.1 or later</strong> on the desktop to exchange sidecars.</li>
+        <li>RAW formats supported by darktable's 5.6.2 decoders; JPEG and other common formats as well.</li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is Droidtable an official darktable project?</summary>
+        <p>
+          No. Droidtable is an independent project that builds on darktable's source code under
+          its GPL license. It is not affiliated with or endorsed by the darktable team. Please
+          report Droidtable problems to Droidtable, not to darktable.
+        </p>
+      </details>
+      <details>
+        <summary>Does it give exactly the same result as desktop darktable?</summary>
+        <p>
+          It runs the same processing code. On the same CPU architecture the result is
+          bit-exact; between a desktop x86 CPU and a phone's ARM CPU tiny floating-point
+          differences remain, which are measured and kept within a documented tolerance.
+        </p>
+      </details>
+      <details>
+        <summary>Can I use every darktable module?</summary>
+        <p>
+          The engine contains all 93 processing modules, so every edit made on the desktop is
+          rendered. Editing on the phone needs a touch panel for each module; the list above
+          grows with each release.
+        </p>
+      </details>
+      <details>
+        <summary>Does it have a photo library database like darktable?</summary>
+        <p>
+          No catalogue is needed: the XMP sidecar next to the image is the source of truth, which
+          is what makes moving between desktop and phone simple.
+        </p>
+      </details>
+      <details>
+        <summary>Is GPU (OpenCL) processing used?</summary>
+        <p>
+          Not yet. Correct CPU results come first; GPU acceleration is part of the optimization
+          phase.
+        </p>
+      </details>
+      <details>
+        <summary>Where is the source code?</summary>
+        <p>
+          All darktable changes and the engine packages with their corresponding source are public
+          in the <a href="https://github.com/droidtable/darktable">droidtable/darktable</a> fork. The
+          app source will be published together with the first app release.
+        </p>
+      </details>
+    </section>
+
+    <section id="links">
+      <h2>Links</h2>
+      <div class="cards">
+        <a class="card" href="https://github.com/droidtable/darktable">
+          <div class="title">darktable fork</div>
+          <div class="desc">github.com/droidtable/darktable — every darktable change, on branch droidtable/5.6.2, one commit per change.</div>
+        </a>
+        <a class="card" href="https://github.com/droidtable/darktable/releases">
+          <div class="title">Engine packages</div>
+          <div class="desc">Tagged releases droidtable-5.6.2-dd.N with prebuilt engine packages, licenses and corresponding source.</div>
+        </a>
+        <a class="card" href="https://www.darktable.org">
+          <div class="title">darktable desktop</div>
+          <div class="desc">The open-source photography workflow application Droidtable builds upon.</div>
+        </a>
+        <a class="card" href="https://github.com/droidtable">
+          <div class="title">Droidtable on GitHub</div>
+          <div class="desc">The organization hosting the fork and this website.</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>
+        Droidtable's own source code is licensed under
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-or-later</a>.
+        darktable is licensed under the GPL as well; the corresponding source — including all
+        changes to darktable — is public in the
+        <a href="https://github.com/droidtable/darktable">droidtable/darktable fork</a>.
+        Third-party libraries shipped with the engine keep their own licenses, which are included
+        in each engine package.
+      </p>
+    </section>
   </div>
+</main>
 
-  <h2 id="links">Links</h2>
-  <div class="cards">
-    <a class="card" href="https://github.com/droidtable/darktable">
-      <div class="title">darktable fork</div>
-      <div class="desc">github.com/droidtable/darktable — every darktable change we make, on branch droidtable/5.6.2, one commit per change.</div>
-    </a>
-    <a class="card" href="https://github.com/droidtable/darktable/releases">
-      <div class="title">Engine packages</div>
-      <div class="desc">Tagged releases droidtable-5.6.2-dd.N with prebuilt engine packages, licenses and corresponding source.</div>
-    </a>
-    <a class="card" href="https://www.darktable.org">
-      <div class="title">darktable desktop</div>
-      <div class="desc">The desktop project Droidtable builds upon — sidecar files are fully interoperable.</div>
-    </a>
-  </div>
-
-  <h2 id="license">License</h2>
-  <p>
-    Droidtable's own source code is licensed under
-    <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-or-later</a>.
-    The corresponding source — including all changes to darktable — is public in the
-    <a href="https://github.com/droidtable/darktable">droidtable/darktable fork</a>.
-  </p>
-
-  <footer>
+<footer>
+  <div class="wrap">
     Droidtable — served by GitHub Pages from
     <a href="https://github.com/droidtable/droidtable-page">this repository</a>.
     Logo and icons in <a href="assets/">assets/</a> are original and
     <a href="assets/CC0-1.0.txt">CC0 1.0</a>.
-  </footer>
-</div>
+    darktable is a trademark of its respective owners; Droidtable is not affiliated with the darktable project.
+  </div>
+</footer>
 </body>
 </html>
